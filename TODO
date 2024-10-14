@@ -14,7 +14,7 @@
 		• %d Prints a decimal (base 10) number.
 		• %i Prints an integer in base 10.
 		• %u Prints an unsigned decimal (base 10) number.
-		• %x Prints a number in hexadecimal (base 16) lowercase format.
+		• %x Prints a number in hexadecimal (base 16) lowercase format. **faz primeiro
 		• %X Prints a number in hexadecimal (base 16) uppercase format.
 		• %% Prints a percent sign.
 
@@ -55,3 +55,5 @@ void printf(const char *format, ...) {
 
     va_end(args);
 }
+
+prinft("eu %d quero me %d",num,len(str));

@@ -13,7 +13,7 @@ int	ft_printf(const char *str, ...)
 			//colocar os casos aqui!!!
 		}
 		else
-			return ;//usar o putchar aqui!!! usar o str++;
+			//usar o putchar aqui!!! usar o str++;
 		str++;
 	}
 }
