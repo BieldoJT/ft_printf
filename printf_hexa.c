@@ -26,33 +26,91 @@ Concatenar os restos na ordem inversa (já que o primeiro resto é o último dí
 
 #include "libftprintf.h"
 
-//possivelmente eu vou usar a itoa??
-static int count_num_hex(char c)
+static int count_num_hex(long int c)
 {
-	int	num;
 	int	count;
 
-	num = ft_itoa(c);
-	while (num > 0)
+	count = 0;
+	if (c == 0)
+		return (1);
+	if( c < 0)
+	{
+		c *= -1;
+	}
+	while (c > 0)
 	{
 		count++;
-		num /= 10;
+		c /= 16;
 	}
 	return (count);
 }
 
-static char	*itoh(int c)
+static char	*itoh(unsigned long int c, int caps)
 {
 	char	*hex_str;
 	int	num;
 	int	len_str;
 
-	num = ft_itoa(c);
 	len_str = count_num_hex(c);
-	hex_str = (char *)ft_calloc(sizeof(char), len_str+ 1);
+	hex_str = (char *)ft_calloc(sizeof(char),(len_str + 1));
+	if (hex_str == NULL)
+		return (NULL);
+	while (c > 0)
+	{
+		num = c % 16;
+		if (num > 9)
+		{
+			if (caps > 1)
+				hex_str[--len_str] = num + 87;
+			else
+				hex_str[--len_str] = num + 55;
+		}
+		else
+			hex_str[--len_str] = num + 48;
+		c /= 16;
+	}
+	return (hex_str);
 }
 
-void	print_hexa(int c)
+void	print_hexa(long int c, char caps)
+{
+	char *num_hexa_str;
+	unsigned long int num;
+
+	num = (unsigned long int)c;
+
+	num_hexa_str = itoh(num, ft_isalpha(caps));
+
+	ft_putstr_fd(num_hexa_str,1);
+}
+
+#include <stdio.h>
+#include <limits.h>
+
+int main()
 {
 
+    printf("\n\nTestando a função count_num_hex:\n\n");
+    int test_num1 = INT_MIN;
+    printf("count_num_hex(%d) = %d\n", test_num1, count_num_hex(test_num1)); // Saída esperada: 3 (255 -> 3 dígitos decimais)
+
+    //	int test_num2 = 1024;
+    //printf("count_num_hex(%d) = %d\n", test_num2, count_num_hex(test_num2)); // Saída esperada: 4 (1024 -> 4 dígitos decimais)
+
+    printf("\n\nTestando a função itoh:\n\n");
+    char *hex_str1 = itoh(test_num1, 1);  // Teste com maiúsculas
+    printf("itoh(%d, 1) = %s\n", test_num1, hex_str1);  // Saída esperada: "FF"
+    free(hex_str1);
+
+    //char *hex_str2 = itoh(test_num2, 2);  // Teste com minúsculas
+    //printf("itoh(%d, 2) = %s\n\n", test_num2, hex_str2);  // Saída esperada: "400"
+    //free(hex_str2);
+
+    printf("\n\nTestando a função print_hexa:\n\n");
+    print_hexa(test_num1, 'A');  // Teste com 'A', caps > 1, deve imprimir "FF"
+	printf("\n");
+    //print_hexa(test_num2, 'A');  // Teste com 'a', caps > 1, deve imprimir "400"
+
+	//printf("%x",55515);
+    return 0;
 }

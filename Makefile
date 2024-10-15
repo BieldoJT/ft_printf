@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 SRCS =
 OBJS = $(SRCS:.c=.o)
-DIR = "/libft/libft.a"
+#DIR = "/libft/libft.a"
 
 
 
@@ -12,12 +12,11 @@ all: $(NAME)
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME): $(OBJS) makelibft
-	mv $(DIR) $(NAME)
+$(NAME): $(OBJS)
 	ar rcs $@ $<
 
 makelibft:
-	make -C /libft
+	make -C libft/
 
 clean:
 	rm -f $(OBJS)
