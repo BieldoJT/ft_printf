@@ -23,3 +23,36 @@ Guardar o resto (convertendo se necessário para A-F).
 Atualizar o número (dividido por 16).
 Concatenar os restos na ordem inversa (já que o primeiro resto é o último dígito da resposta).
 */
+
+#include "libftprintf.h"
+
+//possivelmente eu vou usar a itoa??
+static int count_num_hex(char c)
+{
+	int	num;
+	int	count;
+
+	num = ft_itoa(c);
+	while (num > 0)
+	{
+		count++;
+		num /= 10;
+	}
+	return (count);
+}
+
+static char	*itoh(int c)
+{
+	char	*hex_str;
+	int	num;
+	int	len_str;
+
+	num = ft_itoa(c);
+	len_str = count_num_hex(c);
+	hex_str = (char *)ft_calloc(sizeof(char), len_str+ 1);
+}
+
+void	print_hexa(int c)
+{
+
+}
