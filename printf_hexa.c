@@ -26,17 +26,13 @@ Concatenar os restos na ordem inversa (já que o primeiro resto é o último dí
 
 #include "libftprintf.h"
 
-static int count_num_hex(long int c)
+static int count_num_hex(unsigned int c)
 {
 	int	count;
 
 	count = 0;
 	if (c == 0)
 		return (1);
-	if( c < 0)
-	{
-		c *= -1;
-	}
 	while (c > 0)
 	{
 		count++;
@@ -45,7 +41,7 @@ static int count_num_hex(long int c)
 	return (count);
 }
 
-static char	*itoh(unsigned long int c, int caps)
+static char	*itoh(unsigned int c, int caps)
 {
 	char	*hex_str;
 	int	num;
@@ -72,17 +68,16 @@ static char	*itoh(unsigned long int c, int caps)
 	return (hex_str);
 }
 
-void	print_hexa(long int c, char caps)
+void	print_hexa(unsigned int c, char caps)
 {
 	char *num_hexa_str;
-	unsigned long int num;
 
-	num = (unsigned long int)c;
-
-	num_hexa_str = itoh(num, ft_isalpha(caps));
+	num_hexa_str = itoh(c, ft_isalpha(caps));
 
 	ft_putstr_fd(num_hexa_str,1);
 }
+
+/*
 
 #include <stdio.h>
 #include <limits.h>
@@ -91,26 +86,27 @@ int main()
 {
 
     printf("\n\nTestando a função count_num_hex:\n\n");
-    int test_num1 = INT_MIN;
+    int test_num1 = 55515;
     printf("count_num_hex(%d) = %d\n", test_num1, count_num_hex(test_num1)); // Saída esperada: 3 (255 -> 3 dígitos decimais)
 
-    //	int test_num2 = 1024;
-    //printf("count_num_hex(%d) = %d\n", test_num2, count_num_hex(test_num2)); // Saída esperada: 4 (1024 -> 4 dígitos decimais)
+    int test_num2 = 1024;
+    printf("count_num_hex(%d) = %d\n", test_num2, count_num_hex(test_num2)); // Saída esperada: 4 (1024 -> 4 dígitos decimais)
 
     printf("\n\nTestando a função itoh:\n\n");
     char *hex_str1 = itoh(test_num1, 1);  // Teste com maiúsculas
     printf("itoh(%d, 1) = %s\n", test_num1, hex_str1);  // Saída esperada: "FF"
     free(hex_str1);
 
-    //char *hex_str2 = itoh(test_num2, 2);  // Teste com minúsculas
-    //printf("itoh(%d, 2) = %s\n\n", test_num2, hex_str2);  // Saída esperada: "400"
-    //free(hex_str2);
+    char *hex_str2 = itoh(test_num2, 2);  // Teste com minúsculas
+    printf("itoh(%d, 2) = %s\n\n", test_num2, hex_str2);  // Saída esperada: "400"
+    free(hex_str2);
 
     printf("\n\nTestando a função print_hexa:\n\n");
-    print_hexa(test_num1, 'A');  // Teste com 'A', caps > 1, deve imprimir "FF"
+    print_hexa(test_num1, 'a');  // Teste com 'A', caps > 1, deve imprimir "FF"
 	printf("\n");
     //print_hexa(test_num2, 'A');  // Teste com 'a', caps > 1, deve imprimir "400"
 
-	//printf("%x",55515);
+	printf("%x",55515);
     return 0;
 }
+*/
