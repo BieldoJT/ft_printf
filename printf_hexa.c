@@ -31,8 +31,6 @@ static int count_num_hex(unsigned int c)
 	int	count;
 
 	count = 0;
-	if (c == 0)
-		return (1);
 	while (c > 0)
 	{
 		count++;
@@ -75,12 +73,14 @@ void	print_hexa(unsigned int c, char caps)
 	if (c == 0)
 		ft_putnbr_fd(0,1);
 	else
+	{
 		num_hexa_str = itoh(c, ft_isalpha(caps));
 		ft_putstr_fd(num_hexa_str,1);
+	}
 }
 
 
-
+/*
 #include <stdio.h>
 #include <limits.h>
 
@@ -103,7 +103,7 @@ int main()
     print_hexa(test_num1, 'a');  // Teste com 'A', caps > 1, deve imprimir "FF"
 	printf("\n");
 
-	printf("%x",0);
+	printf("%X",45);
     return 0;
-}
+}*/
 
