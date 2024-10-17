@@ -8,6 +8,7 @@ int	print_nbr(int n)
 	len = 0;
 	num = ft_itoa(n);
 	len = print_str(num);
+	free(num);
 	return (len);
 }
 

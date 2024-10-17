@@ -1,7 +1,7 @@
 #include "libftprintf.h"
 
 
-static int count_num_ptr(unsigned long num)
+static int	count_num_ptr(unsigned long num)
 {
 	int	count;
 
@@ -14,7 +14,7 @@ static int count_num_ptr(unsigned long num)
 	return (count);
 }
 
-static char *itoptr(unsigned long ptr)
+static char	*itoptr(unsigned long ptr)
 {
 	char	*ptr_str;
 	int	len_str;
@@ -41,6 +41,7 @@ static char *itoptr(unsigned long ptr)
 int	print_ptr(void *ptr)
 {
 	char	*str;
+	int	len;
 
 	if(ptr == NULL)
 	{
@@ -51,8 +52,9 @@ int	print_ptr(void *ptr)
 	{
 		str = itoptr((unsigned long)ptr);
 		ft_putstr_fd("0x",1);
-		print_str(str);
-		return (ft_strlen(str) + 2);
+		len = print_str(str);
+		free(str);
+		return (len + 2);
 	}
 }
 /*

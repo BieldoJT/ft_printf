@@ -39,11 +39,12 @@ int	print_unsigned(unsigned int	n)
 
 	str_len_unum = 0;
 	if (n == 0)
-		str_len_unum += print_char('0');
+		str_len_unum = print_char('0');
 	else
 	{
 		num = uitoa(n);
-		str_len_unum += print_str(num);
+		str_len_unum = print_str(num);
+		free(num);
 	}
 	return (str_len_unum);
 }

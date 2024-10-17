@@ -1,7 +1,7 @@
 
 #include "libftprintf.h"
 
-static int count_num_hex(unsigned int c)
+static int	count_num_hex(unsigned int c)
 {
 	int	count;
 
@@ -43,7 +43,8 @@ static char	*itoh(unsigned int c, int caps)
 
 int	print_hexa(unsigned int c, char caps)
 {
-	char *num_hexa_str;
+	char	*num_hexa_str;
+	int	len;
 
 	if (c == 0)
 	{
@@ -54,7 +55,8 @@ int	print_hexa(unsigned int c, char caps)
 	{
 		num_hexa_str = itoh(c, ft_isalpha(caps));
 		ft_putstr_fd(num_hexa_str,1);
-		return (ft_strlen(num_hexa_str));
+		len = print_str(num_hexa_str);
+		return (len);
 	}
 }
 
