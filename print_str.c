@@ -2,6 +2,8 @@
 
 int	print_str(char *str)
 {
+	if (str == NULL)
+		return (print_str("(null)"));
 	ft_putstr_fd(str,1);
 	return (ft_strlen(str));
 }
