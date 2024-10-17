@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_hexa.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 20:04:46 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/10/17 20:04:48 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	count_num_hex(unsigned int c)
@@ -16,11 +28,11 @@ static int	count_num_hex(unsigned int c)
 static char	*itoh(unsigned int c, int caps)
 {
 	char	*hex_str;
-	int	num;
-	int	len_str;
+	int		num;
+	int		len_str;
 
 	len_str = count_num_hex(c);
-	hex_str = (char *)ft_calloc(sizeof(char),(len_str + 1));
+	hex_str = (char *)ft_calloc(sizeof(char), (len_str + 1));
 	if (hex_str == NULL)
 		return (NULL);
 	while (c > 0)
@@ -43,11 +55,11 @@ static char	*itoh(unsigned int c, int caps)
 int	print_hexa(unsigned int c, char caps)
 {
 	char	*num_hexa_str;
-	int	len;
+	int		len;
 
 	if (c == 0)
 	{
-		ft_putnbr_fd(0,1);
+		ft_putnbr_fd(0, 1);
 		return (1);
 	}
 	else
@@ -88,4 +100,3 @@ int main()
 	printf("\n\n\n\n%x",-35);
     return 0;
 }*/
-

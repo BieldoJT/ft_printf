@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_unsigend.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 20:05:17 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/10/17 20:05:18 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static int	num_len(unsigned int	num)
+static int	num_len(unsigned int num)
 {
 	int	len;
 
@@ -13,7 +25,7 @@ static int	num_len(unsigned int	num)
 	return (len);
 }
 
-static char	*uitoa(unsigned int	n)
+static char	*uitoa(unsigned int n)
 {
 	char	*num;
 	int		len;
@@ -32,7 +44,7 @@ static char	*uitoa(unsigned int	n)
 	return (num);
 }
 
-int	print_unsigned(unsigned int	n)
+int	print_unsigned(unsigned int n)
 {
 	int		str_len_unum;
 	char	*num;
@@ -69,5 +81,4 @@ int main()
 	printf("\nLength: %d\n", len3);
 
 	return 0;
-}
-*/
+}*/

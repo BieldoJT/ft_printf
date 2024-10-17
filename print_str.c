@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 20:05:08 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/10/17 20:05:11 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	print_str(char *str)
 {
 	if (str == NULL)
 		return (print_str("(null)"));
-	ft_putstr_fd(str,1);
+	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
 }
 /*

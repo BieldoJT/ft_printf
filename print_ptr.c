@@ -1,5 +1,16 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_ptr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gda-conc <gda-conc@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 20:05:00 by gda-conc          #+#    #+#             */
+/*   Updated: 2024/10/17 20:05:03 by gda-conc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_printf.h"
 
 static int	count_num_ptr(unsigned long num)
 {
@@ -16,8 +27,8 @@ static int	count_num_ptr(unsigned long num)
 
 static char	*itoptr(unsigned long ptr)
 {
-	char	*ptr_str;
-	int	len_str;
+	char			*ptr_str;
+	int				len_str;
 	unsigned long	i;
 
 	len_str = count_num_ptr(ptr);
@@ -28,7 +39,7 @@ static char	*itoptr(unsigned long ptr)
 	while (ptr > 0)
 	{
 		i = (ptr % 16);
-		if(i > 9)
+		if (i > 9)
 			ptr_str[--len_str] = i + 87;
 		else
 			ptr_str[--len_str] = i + 48;
@@ -37,21 +48,20 @@ static char	*itoptr(unsigned long ptr)
 	return (ptr_str);
 }
 
-
 int	print_ptr(void *ptr)
 {
 	char	*str;
-	int	len;
+	int		len;
 
-	if(ptr == NULL)
+	if (ptr == NULL)
 	{
 		str = "(nil)";
-		return(print_str(str));
+		return (print_str(str));
 	}
 	else
 	{
 		str = itoptr((unsigned long)ptr);
-		ft_putstr_fd("0x",1);
+		ft_putstr_fd("0x", 1);
 		len = print_str(str);
 		free(str);
 		return (len + 2);
@@ -78,4 +88,3 @@ int main(void)
 
     return 0;
 }*/
-
