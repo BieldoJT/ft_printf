@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	print_str(char *str)
 {
@@ -14,8 +14,8 @@ int main()
 {
 	char *string = "";
 
-	ft_print_str(string); //testando se está printando a string.
-	printf("\n\n\n%s",string); // usando a printf.
+	ft_print_str(string); //Testing print
+	printf("\n\n\n%s",string); // using printf.
 
 	printf("\n\n\nvalue of ft_printf: %d",ft_print_str(string));
 	printf("\n\n\nvalue of original printf: %d",printf("%s",string));

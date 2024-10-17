@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 
 static int	count_num_ptr(unsigned long num)
@@ -64,15 +64,15 @@ int main(void)
     char *ptr = num;
     int *null_ptr = NULL;
 
-    printf("Teste com ponteiro não nulo:\n");
-    print_ptr(ptr); // minnha
+    printf("Testing with valid pointer:\n");
+    print_ptr(ptr); // ft_printf
 	printf("\n%p",ptr);
 
-    printf("\n\nTeste com ponteiro nulo:\n");
+    printf("\n\nTesting with null pointer:\n");
     print_ptr(null_ptr);
 	printf("\n%p",null_ptr);
 
-	printf("\n\nTeste do retorno do inteiro\n");
+	printf("\n\nTesting return of the pointer\n");
 	printf("%d\n",print_ptr(ptr));
 	printf("\n%d",printf("%p",ptr));
 

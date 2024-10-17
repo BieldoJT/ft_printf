@@ -1,5 +1,4 @@
-
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	count_num_hex(unsigned int c)
 {
@@ -54,8 +53,8 @@ int	print_hexa(unsigned int c, char caps)
 	else
 	{
 		num_hexa_str = itoh(c, ft_isalpha(caps));
-		ft_putstr_fd(num_hexa_str,1);
 		len = print_str(num_hexa_str);
+		free(num_hexa_str);
 		return (len);
 	}
 }
@@ -68,24 +67,25 @@ int	print_hexa(unsigned int c, char caps)
 int main()
 {
 
-    printf("\n\nTestando a função count_num_hex:\n\n");
+    printf("\n\nTesting function count:\n\n");
     int test_num1 = -35;
-    printf("count_num_hex(%d) = %d\n", test_num1, count_num_hex(test_num1)); // Saída esperada: 3 (255 -> 3 dígitos decimais)
+    printf("count_num_hex(%d) = %d\n", test_num1, count_num_hex(test_num1));
 
 
 
-    printf("\n\nTestando a função itoh:\n\n");
-    char *hex_str1 = itoh(test_num1, 1);  // Teste com maiúsculas
-    printf("itoh(%d, 1) = %s\n", test_num1, hex_str1);  // Saída esperada: "FF"
+    printf("\n\nTesting function itoh:\n\n");
+    char *hex_str1 = itoh(test_num1, 2);
+    printf("itoh(%d, 1) = %s\n", test_num1, hex_str1);
     free(hex_str1);
 
 
-    printf("\n\nTestando a função print_hexa:\n\n");
-    print_hexa(test_num1, 'X');  // Teste com 'X', caps > 1, deve imprimir "FF"
+    printf("\n\nTesting funciton print_hexa:\n\n");
+    print_hexa(test_num1, 'x');
 	printf("\n");
 
-	printf("\n\nvalor retornado do print_hexa :%d\n\n",print_hexa(test_num1,'X'));
-	printf("\n\nvalor retornado do printf original :%d\n\n",printf("%X",test_num1));
+
+
+	printf("\n\n\n\n%x",-35);
     return 0;
-}
-*/
+}*/
+

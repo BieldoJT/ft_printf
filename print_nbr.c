@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	print_nbr(int n)
 {
@@ -22,7 +22,7 @@ int main()
 
 	print_nbr(num);
 	printf("\n");
-	printf("\nprintando o tamnho da str: %d\n",print_nbr(num)); // printando o tamanho da str
+	printf("\nprinting legth str: %d\n",print_nbr(num)); // length str
 
 	return (0);
 }*/
