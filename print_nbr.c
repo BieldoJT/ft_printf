@@ -11,7 +11,7 @@ int	print_nbr(int n)
 	return (len);
 }
 
-
+/*
 
 #include <limits.h>
 
@@ -24,4 +24,4 @@ int main()
 	printf("\nprintando o tamnho da str: %d\n",print_nbr(num)); // printando o tamanho da str
 
 	return (0);
-}
+}*/
